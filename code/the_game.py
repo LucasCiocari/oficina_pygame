@@ -1,6 +1,6 @@
 """Estrutura basica de um jogo com PyGame."""
 
-from starfield import create_star, draw_star
+from starfield import create_star, move_star, draw_star
 
 import sys
 import pygame
@@ -29,10 +29,12 @@ while running:
     # Se o jogo ainda continua...
     if running:
         # desenha objetos
+        screen.fill((0, 0, 0))  # preenche a tela com uma cor.
         for star in starfield:
             draw_star(screen, star)
         pygame.display.flip()
         # manipula objetos
+        starfield = [move_star(star) for star in starfield]
 
 # finalizar o sistema
 print("Nao desista! Volte!")

@@ -18,3 +18,9 @@ def draw_star(screen, star):
     x, y, speed, size, color = star
     rect = (x, y, size, size)
     screen.fill(color, rect)
+
+
+def move_star(star):
+    """Move uma estrela."""
+    x, y, speed, size, color = star
+    return (x - speed, y, speed, size, color)
