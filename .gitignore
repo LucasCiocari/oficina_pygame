@@ -1,0 +1,30 @@
+__PYCACHE__/
+*.pyo
+*.pyc
+
+# Output files.
+
+*.pdf
+
+# LaTeX temporary files.
+
+*.aux
+*.dvi
+*.out
+*.log
+*.nav
+*.snm
+*.toc
+*.fls
+*.vrb
+*.synctex.gz
+*.fdb_latexmk
+
+# temparary files
+*.swp
+
+# other files.
+.exrc
+
+# OS Specific files
+.DS_Store
