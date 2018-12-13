@@ -12,6 +12,7 @@ FPS = 30
 fullscreen = pygame.FULLSCREEN if ("-fs" in sys.argv) else 0
 screen = pygame.display.set_mode(SIZE, fullscreen)
 running = True
+clock = pygame.time.Clock()
 
 starfield = [create_star(WIDTH, HEIGHT) for _ in range(300)]
 
@@ -35,6 +36,8 @@ while running:
         pygame.display.flip()
         # manipula objetos
         starfield = [move_star(star) for star in starfield]
+        # controla o tempo de atualizacao da tela.
+        clock.tick(FPS)
 
 # finalizar o sistema
 print("Nao desista! Volte!")
