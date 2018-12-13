@@ -2,6 +2,7 @@
 
 from starfield import create_star, move_star, draw_star
 
+from random import randrange
 import sys
 import pygame
 pygame.init()
@@ -14,7 +15,8 @@ screen = pygame.display.set_mode(SIZE, fullscreen)
 running = True
 clock = pygame.time.Clock()
 
-starfield = [create_star(WIDTH, HEIGHT) for _ in range(300)]
+starfield = [create_star(randrange(0, WIDTH-1), randrange(0, HEIGHT-1))
+             for _ in range(300)]
 
 # loop do jogo
 while running:
@@ -35,7 +37,10 @@ while running:
             draw_star(screen, star)
         pygame.display.flip()
         # manipula objetos
-        starfield = [move_star(star) for star in starfield]
+        starfield = [move_star(star)
+                     if star[0] > 0 else create_star(WIDTH-1,
+                                                     randrange(0, HEIGHT-1))
+                     for star in starfield]
         # controla o tempo de atualizacao da tela.
         clock.tick(FPS)
 

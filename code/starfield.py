@@ -3,10 +3,8 @@
 from random import choice, randrange
 
 
-def create_star(width, height):
+def create_star(x, y):
     """Cria uma tupla representando uma estrela."""
-    x = randrange(0, width-1)
-    y = randrange(0, height-1)
     speed = randrange(1, 3)
     size = randrange(1, 3)
     color = [choice([100, 200, 250])] * 3
