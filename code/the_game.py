@@ -1,6 +1,7 @@
 """Estrutura basica de um jogo com PyGame."""
 
 from starfield import create_star, move_star, draw_star
+from sprite import Sprite
 
 from random import randrange
 import sys
@@ -14,6 +15,8 @@ fullscreen = pygame.FULLSCREEN if ("-fs" in sys.argv) else 0
 screen = pygame.display.set_mode(SIZE, fullscreen)
 running = True
 clock = pygame.time.Clock()
+
+protagonista = Sprite('media/images/f18.png', (50, HEIGHT//2))
 
 starfield = [create_star(randrange(0, WIDTH-1), randrange(0, HEIGHT-1))
              for _ in range(300)]
@@ -33,8 +36,11 @@ while running:
     if running:
         # desenha objetos
         screen.fill((0, 0, 0))  # preenche a tela com uma cor.
+
         for star in starfield:
             draw_star(screen, star)
+        protagonista.draw(screen)
+
         pygame.display.flip()
         # manipula objetos
         starfield = [move_star(star)
