@@ -15,9 +15,13 @@ running = True
 while running:
     # Trata eventos
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT:   # Evento de "fechar aplicacao"
             running = False
             break
+        elif event.type in [pygame.KEYUP, pygame.KEYDOWN]:  # Evento de teclado
+            if event.key == pygame.K_ESCAPE:
+                running = False
+                break
     # Se o jogo ainda continua...
     if running:
         # desenha objetos
