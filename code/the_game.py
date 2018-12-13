@@ -38,8 +38,8 @@ while running:
         pygame.display.flip()
         # manipula objetos
         starfield = [move_star(star)
-                     if star[0] > 0 else create_star(WIDTH-1,
-                                                     randrange(0, HEIGHT-1))
+                     if star[0] > 0
+                     else create_star(WIDTH-1, randrange(0, HEIGHT-1))
                      for star in starfield]
         # controla o tempo de atualizacao da tela.
         clock.tick(FPS)
